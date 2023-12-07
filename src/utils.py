@@ -1,8 +1,12 @@
-import os 
+import os
 import sys
-import numpy as np
+
+import numpy as np 
 import pandas as pd
-import dill 
+import dill
+from sklearn.metrics import r2_score
+from sklearn.model_selection import GridSearchCV
+
 from src.exception import CustomException
 
 def save_object(file_path,obj):
@@ -41,6 +45,16 @@ def evaluate_models(X_train, y_train,X_test,y_test,models,param):
             report[list(models.keys())[i]] = test_model_score
 
         return report
+
+    except Exception as e:
+        raise CustomException(e, sys)
+
+def load_object(file_path):
+    try:
+        with open(file_path, "rb") as file_obj:
+            if file_obj !='\x0d':
+                return dill.load(file_obj)
+
 
     except Exception as e:
         raise CustomException(e, sys)

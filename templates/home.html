@@ -1,0 +1,108 @@
+<html>
+<body>
+    <div class="login">
+       <h1>Student Exam Performance Indicator</h1>
+   
+       <form action="{{ url_for('predict_datapoint')}}" method="post">
+        <h1>
+            <legend>Student Exam Performance Prediction</legend>
+        </h1>
+        <div class="mb-3">
+            <label class="form-label">rollno</label>
+            <input class="form-control" type="number" name="rollno"
+                placeholder="Enter your rollno" min='0' max='1000000' />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">std</label>
+            <select class="form-control" name="std" placeholder="Enter you std" required>
+                <option class="placeholder" selected disabled value="">Select std</option>
+                <option value=1>
+                    Group A
+                </option>
+                <option value=2>
+                    Group B
+                </option>
+                <option value=3>
+                    Group C
+                </option>
+                <option value=4>
+                    Group D
+                </option>
+                <option value=5>
+                    Group E
+                </option>
+                <option value=6>
+                    Group F
+                </option>
+                <option value=7>
+                    Group G
+                </option>
+                <option value=8>
+                    Group H
+                </option>
+                <option value=9>
+                    Group I
+                </option>
+                <option value=10>
+                    Group J
+                </option>
+                <option value=11>
+                    Group K
+                </option>
+                <option value=12>
+                    Group L
+                </option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">gender</label>
+            <select class="form-control" name="gender"
+                placeholder="Enter you gender" required>
+                <option class="placeholder" selected disabled value="">Select gender</option>
+                <option value=1>
+                    Male
+                </option>
+                <option value=0>
+                    Female
+                </option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">sibiling</label>
+            <input class="form-control" type="number" name="sibiling"
+                placeholder="Enter sibiling" min='0' max='5' />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">place</label>
+            <select class="form-control" name="place" placeholder="place catagory" required>
+                <option class="placeholder" selected disabled value="">Select placeType</option>
+                <option value=0>
+                    village
+                </option>
+                <option value=1>
+                    town
+                </option>
+                <option value=2>
+                    city
+                </option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">transport rating</label>
+            <input class="form-control" type="number" name="transport"
+                placeholder="Enter your transport rating" min='0' max='5' />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">income</label>
+            <input class="form-control" type="number" name="income"
+                placeholder="Enter your income" min='1000' max='1000000' />
+        </div>
+        <div class="mb-3">
+            <input class="btn btn-primary" type="submit" value="Predict" required />
+        </div>
+    </form>
+    <h2>
+       THE  prediction is {{results}}
+    </h2>
+   <body>
+</html>
